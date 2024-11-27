@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const cookieMessage = document.createElement('div');
     const form = document.querySelector('.review');
     const submit = document.querySelector('.submit');
+    const spilaPodcast = document.querySelector('.spila-podcast');
+    const passwordContainer = document.querySelector('.password-container');
     
     cookieMessage.style.display = 'none';
     cookieMessage.style.backgroundColor = '#f44336';
@@ -42,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     submit.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent the form from submitting normally
+        e.preventDefault();
 
         const name = document.querySelector('#review-name').value.trim();
         const email = document.querySelector('#review-email').value.trim();
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (response.ok) {
                 alert('Thank you for your review!');
                 review.style.display = 'none';
-                form.reset(); // Reset the form fields
+                form.reset();
             } else {
                 alert('Failed to send your review. Please try again later.');
             }
@@ -90,3 +92,72 @@ document.addEventListener("DOMContentLoaded", function () {
         return re.test(email);
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const overlay = document.querySelector('.overlay');
+    const spilaPodcast = document.querySelector('.spila-podcast');
+    const passwordContainer = document.querySelector('.password-container');
+    const podcastContainer = document.querySelector('.podcast-container');
+    const passwordConfirm = document.querySelector('.password-confirm');
+    const passwordInput = document.querySelector('.password');
+    const cookieMessage = document.createElement('div');
+    const toastMessage = document.createElement('div');
+
+    cookieMessage.style.display = 'none';
+    cookieMessage.style.backgroundColor = '#f44336';
+    cookieMessage.style.color = 'white';
+    cookieMessage.style.padding = '10px';
+    cookieMessage.style.borderRadius = '5px';
+    cookieMessage.style.width = '100%';
+    cookieMessage.style.minWidth = '250px';
+    cookieMessage.style.maxWidth = '500px';
+    cookieMessage.style.marginLeft = '20px';
+    cookieMessage.style.marginRight = '20px';
+    cookieMessage.style.marginTop = '20px';
+    cookieMessage.style.textAlign = 'center';
+    cookieMessage.textContent = 'Incorrect Password';
+
+    toastMessage.style.display = 'none';
+    toastMessage.style.backgroundColor = '#26bf4f';
+    toastMessage.style.color = 'white';
+    toastMessage.style.padding = '10px';
+    toastMessage.style.borderRadius = '5px';
+    toastMessage.style.width = '100%';
+    toastMessage.style.minWidth = '250px';
+    toastMessage.style.maxWidth = '500px';
+    toastMessage.style.marginLeft = '20px';
+    toastMessage.style.marginRight = '20px';
+    toastMessage.style.marginTop = '20px';
+    toastMessage.style.textAlign = 'center';
+    toastMessage.textContent = 'Access Granted';
+
+    const PASSWORD = "guggaGiveMeAn_A";
+
+    if (passwordContainer) {
+        passwordContainer.appendChild(cookieMessage);
+    }
+
+    if (spilaPodcast) {
+        spilaPodcast.addEventListener('click', function () {
+            overlay.style.display = 'flex';
+            passwordContainer.style.display = 'flex';
+        });
+    }
+
+    if (passwordConfirm) {
+        passwordConfirm.addEventListener('click', function () {
+            if (passwordInput.value === PASSWORD) {
+                sessionStorage.setItem('podcastAccess', 'true');
+                passwordContainer.style.display = 'none';
+                podcastContainer.style.display = 'flex';
+                cookieMessage.style.display = 'block';
+            } else {
+                cookieMessage.style.display = 'block';
+                setTimeout(function () {
+                    cookieMessage.style.display = 'none';
+                }, 3000);
+            }
+        });
+    }
+});
+
