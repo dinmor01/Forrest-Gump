@@ -845,6 +845,10 @@ footer p {
         width: calc(100% - 40px);
     }
 
+    password-container {
+        margin-top: 100px;
+    }
+
     .password-box {
         position: fixed;
         height: 200px;
