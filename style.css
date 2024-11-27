@@ -37,6 +37,7 @@ body::-webkit-scrollbar {
     background-color: rgba(0, 0, 0, 0.65);
     backdrop-filter: blur(15px);
     margin-top: -105px;
+    z-index: 1;
 }
 
 .cookie-container {
@@ -44,6 +45,7 @@ body::-webkit-scrollbar {
     display: flex;
     width: 100%;
     justify-content: center;
+    z-index: 2;
 }
 
 .cookie {
@@ -127,7 +129,141 @@ nav {
 a:link, a:visited {
     color: black;
     text-decoration: none;
-  }
+}
+
+.password-container {
+    position: fixed;
+    display: none;
+    width: 100%;
+    justify-content: center;
+    z-index: 2;
+}
+
+.password-box {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 100%;
+    min-width: 250px;
+    max-width: 500px;
+    margin-top: 200px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.password-box h4 {
+    font-size: 22px;
+    margin-top: -10px;
+}
+
+.password-exit {
+    position: absolute;
+    margin-bottom: 140px;
+    margin-right: -86%;
+    margin-left: auto;
+}
+
+.password {
+    border: 1px solid rgba(139, 139, 139, 0.5);
+    border-radius: 10px;
+    height: 40px;
+    width: 80%;
+    margin-top: 10px;
+    transition: 0.25s;
+    outline: none;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.password:focus {
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.password-confirm {
+    border: 1px solid rgba(139, 139, 139, 0.5);
+    border-radius: 10px;
+    height: 40px;
+    width: 80%;
+    margin-top: 15px;
+    transition: 0.25s;
+    outline: none;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #0061ff;
+    border: 2px solid #0061ff;
+    color: white;
+    padding-top: 6px;
+    padding-bottom: 4.5px;
+    font-size: 18px;
+}
+
+.password-confirm:hover {
+    background-color: #3c87ff;
+}
+
+.spila-podcast {
+    height: 45px;
+    width: 140px;
+    min-height: 45px;
+    background-color: #0061ff;
+    color: white;
+    font-weight: bold;
+    font-size: 17.5px;
+    border-radius: 8px;
+    border: 2px solid #0061ff;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.2s;
+}
+
+.spila-podcast:hover {
+    background-color: #3c87ff;
+}
+
+.podcast-container {
+    position: fixed;
+    display: none;
+    width: 100%;
+    justify-content: center;
+    z-index: 2;
+}
+
+.podcast-box {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 185px;
+    width: 100%;
+    min-width: 250px;
+    max-width: 500px;
+    margin-top: 200px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.podcast-box h4 {
+    font-size: 25px;
+    margin-top: -5px;
+}
+
+.podcast-box audio {
+    margin-top: 25px;
+    width: 80%;
+}
+
+.podcast-exit {
+    position: absolute;
+    margin-bottom: 130px;
+    margin-right: -86%;
+    margin-left: auto;
+}
 
 .start-container {
     display: flex;
@@ -224,7 +360,7 @@ a:link, a:visited {
     background-color: transparent;
     height: 35px;
     width: 80px;
-    color: rgb(139, 139, 139);
+    color: rgb(255, 255, 255);
     cursor: pointer;
     border-radius: 10px;
     transition: 0.25s;
@@ -232,7 +368,6 @@ a:link, a:visited {
 
 .go-back:hover {
     border: 1px solid rgba(255, 255, 255, 1);
-    color: rgb(255, 255, 255);
 }
 
 .FG-container {
@@ -707,8 +842,43 @@ footer p {
         height: 400px;
         margin-left: 20px;
         margin-right: 20px;
-        margin-top: 25%;
         width: calc(100% - 40px);
+    }
+
+    .password-box {
+        position: fixed;
+        height: 200px;
+        margin-left: 20px;
+        margin-right: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .password-exit {
+        position: absolute;
+        margin-bottom: 150px;
+        margin-right: -86%;
+    }
+
+    .podcast-box {
+        position: fixed;
+        height: 200px;
+        margin-left: 20px;
+        margin-right: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .podcast-exit {
+        position: absolute;
+        margin-bottom: 150px;
+        margin-right: -86%;
+    }
+
+    .podcast-box h4 {
+        font-size: 21px;
+    }
+
+    .podcast-box audio {
+        width: 90%;
     }
 
     .logo {
@@ -787,7 +957,6 @@ footer p {
         width: auto;
         margin-left: 20px;
         margin-right: 20px;
-        margin-bottom: 40px;
         height: 550px;
     }
     
@@ -823,8 +992,6 @@ footer p {
         width: auto;
         margin-left: 20px;
         margin-right: 20px;
-        margin-bottom: 40px;
-        height: 550px;
     }
     
     .TML-card h2 {
@@ -836,7 +1003,7 @@ footer p {
     }
     
     .TML-card-image {
-        height: 350px;
+        height: 225px;
     }
     
     .TML-card p {
