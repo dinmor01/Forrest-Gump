@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const webhookURL = 'https://discord.com/api/webhooks/1308578264671060038/FQ1kOjg46E9G1HLq2e2IGsb57xMmD-euDLf9GU0-W4_8UNuxNsOkIFVcA0iIl6M0m2cC';
+        const webhookURL = '8UNuxNsOkIFVcA0iIl6M0m2cC';
         const payload = {
             content: `New Review Submitted! 🎉\n\n**Name:** ${name}\n**Email:** ${email}\n**Review:** ${review}`
         };
